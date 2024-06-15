@@ -21,3 +21,27 @@ class ResistorColorDuo {
         return Integer.parseInt(value.toString());
     }
 }
+
+
+class RnaTranscription {
+
+    String transcribe(String dnaStrand) {
+        if(dnaStrand.isEmpty()) {
+            return "";
+        }
+        StringBuilder rnaStrand = new StringBuilder();
+        for(int i = 0; i < dnaStrand.length(); i++) {
+            char dnaChar = dnaStrand.charAt(i);
+        String rnaLetter = switch(dnaChar) {
+            case 'G' -> "C";
+            case 'C' -> "G";
+            case 'T' -> "A";
+            case 'A' -> "U";
+            default -> throw new IllegalArgumentException("Not DNA");
+        };
+        rnaStrand.append(rnaLetter);
+        }
+        
+        return rnaStrand.toString();
+    }
+}
